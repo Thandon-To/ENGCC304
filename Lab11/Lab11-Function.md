@@ -8,55 +8,58 @@
 ```c++
 #include <stdio.h>
 
-int ipow(int base, int exp)
-{
-    int r = 1;
-    for (int i = 0; i < exp; i++)
-        r *= base;
-    return r;
+// ฟังก์ชันคำนวณเลขยกกำลัง (base^exp)
+int power(int base, int exp) {
+    int result = 1;
+    for (int i = 0; i < exp; i++) {
+        result *= base;  // คูณ base ซ้ำ exp ครั้ง
+    }
+    return result;
 }
 
-int isArmstrong(int n)
-{
-    if (n < 0)
-        return 0;
-    int digits = 0, temp = n;
+// ฟังก์ชันตรวจสอบว่าเป็น Armstrong number หรือไม่
+int isArmstrong(int n) {
+    if (n < 0) return 0;  // ถ้าเป็นเลขติดลบ => ไม่ใช่
 
-    /* นับจำนวนหลัก (อย่างน้อย 1 หลักสำหรับ 0) */
-    do
-    {
+    int digits = 0;   // นับจำนวนหลัก
+    int temp = n;
+
+    // นับจำนวนหลัก
+    do {
         digits++;
         temp /= 10;
     } while (temp != 0);
 
-    /* คำนวณผลรวมเลขยกกำลังจำนวนหลัก */
     int sum = 0;
     temp = n;
-    do
-    {
-        int d = temp % 10;
-        sum += ipow(d, digits);
-        temp /= 10;
+
+    // หาผลรวมของ (แต่ละหลัก^จำนวนหลัก)
+    do {
+        int d = temp % 10;        // เอาหลักสุดท้าย
+        sum += power(d, digits);  // ยกกำลังแล้วบวกเข้ากับ sum
+        temp /= 10;               // ตัดหลักสุดท้ายทิ้ง
     } while (temp != 0);
 
-    return sum == n;
+    return sum == n;  // ถ้า sum เท่ากับ n → เป็น Armstrong
 }
 
-int main()
-{
+int main() {
     int n;
 
-    printf("Enter Number:\n");
-    if (scanf("%d", &n) != 1)
+    printf("Enter Number: ");
+    if (scanf("%d", &n) != 1) {
+        printf("Invalid input.\n");
         return 0;
+    }
 
     if (isArmstrong(n))
-        printf("Pass.\n");
+        printf("Pass.\n");     // เป็น Armstrong number
     else
-        printf("Not Pass.\n");
+        printf("Not Pass.\n"); // ไม่ใช่ Armstrong number
 
     return 0;
 }
+
 
 ```
 
