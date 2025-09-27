@@ -5,45 +5,37 @@
 
 ## FIX CODE
 ```c++
-\#include <stdio.h>
+#include <stdio.h>
 #include <string.h>
 
-int main()
-{
+int main() {
     char word[100];
     int i, j, isPalindrome = 1;
 
     printf("Enter word: ");
-    if (scanf(" %99[^\n]", word) != 1)
-        return 0;
+    scanf(" %s", word);
 
-    for (i = 0; word[i]; i++)
-    {
-        if (word[i] >= 'A' && word[i] <= 'Z')
-        {
-            word[i] = word[i] - 'A' + 'a';
+    // แปลงตัวอักษร A-Z ให้เป็น a-z ด้วยการบวก 32
+    for (i = 0; word[i]; i++) {
+        if (word[i] >= 'A' && word[i] <= 'Z') {
+            word[i] = word[i] + 32;  
         }
     }
 
     i = 0;
-    j = (int)strlen(word) - 1;
-    while (i < j)
-    {
-        if (word[i] == ' ')
-        {
-            i++;
-            continue;
-        }
-        if (word[j] == ' ')
-        {
-            j--;
-            continue;
-        }
-        if (word[i] != word[j])
-        {
+    j = strlen(word) - 1;
+
+    while (i < j) {
+        // ข้ามช่องว่าง
+        if (word[i] == ' ') { i++; continue; }
+        if (word[j] == ' ') { j--; continue; }
+
+        // ถ้าไม่ตรงกัน => ไม่ใช่ palindrome
+        if (word[i] != word[j]) {
             isPalindrome = 0;
             break;
         }
+
         i++;
         j--;
     }
@@ -55,6 +47,7 @@ int main()
 
     return 0;
 }
+
 
 ```
 
