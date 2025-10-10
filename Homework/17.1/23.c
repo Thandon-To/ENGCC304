@@ -27,7 +27,7 @@ int main(void) {
         printf("3. Display all books\n");
         printf("4. Exit\n");
         printf("Choose an option: ");
-        if (scanf("%d", &choice) != 1) return 0;
+        scanf("%d", &choice);
 
         if (choice == 1) {
             addBook(books, &count);
