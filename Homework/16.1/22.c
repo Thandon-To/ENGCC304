@@ -2,7 +2,7 @@
 
 int main(void) {
     int a[7] = {15, 7, 25, 3, 73, 32, 45};
-    int n = 7;                 // ไม่ใช้ sizeof
+    int n = 7;                 
     int i, j;
 
     // Old Series
@@ -41,3 +41,4 @@ int main(void) {
 
     return 0;
 }
+
