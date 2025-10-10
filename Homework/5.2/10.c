@@ -2,10 +2,13 @@
 
 int main()
 {
-    int score = 0;
-    
+    int score;
+
     printf("Please enter your score: ");
-    scanf("%d", &score);
+    if (scanf("%d", &score) != 1) { 
+        printf("please enter number only.\n");
+        return 0;
+    }
 
     if (score >= 80) {
         printf("A!\n");
@@ -28,11 +31,9 @@ int main()
     else if (score >= 50) {
         printf("D!\n");
     }
-    else if (score < 50) {
+    else {
         printf("F!\n");
     }
-    else {
-        printf("please enter number only.\n");
-    }
+
     return 0;
 }
