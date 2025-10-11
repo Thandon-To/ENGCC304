@@ -15,7 +15,7 @@ void addBook(Book books[], int *count);
 void searchBook(Book books[], int count, char title[]);
 void displayBooks(Book books[], int count);
 
-int main(void) {
+int main() {
     Book books[MAX_BOOKS];
     int count = 0;
     int choice;
@@ -95,3 +95,4 @@ void displayBooks(Book books[], int count) {
         printf("Year: %d\n", books[i].year);
     }
 }
+
