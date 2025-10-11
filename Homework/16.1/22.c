@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void) {
+int main() {
     int a[7] = {15, 7, 25, 3, 73, 32, 45};
     int n = 7;                 
     int i, j;
@@ -41,4 +41,5 @@ int main(void) {
 
     return 0;
 }
+
 
