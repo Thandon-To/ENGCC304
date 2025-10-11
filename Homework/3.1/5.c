@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void) {
+int main() {
     float h, w;
 
     printf("Enter H = ");
@@ -12,3 +12,4 @@ int main(void) {
     printf("%.1f\n", (h * w) / 2);
     return 0;
 }
+
